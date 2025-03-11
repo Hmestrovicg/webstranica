@@ -1,0 +1,42 @@
+footer button, footer a, footer li, footer li i {
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    background: none;
+    text-decoration: none;
+    padding: 0;
+}
+
+footer {
+    background: #ffc02f;
+    padding-bottom: 20px;
+}
+
+.Footer {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+footer i.fa-brands, footer .copy {
+    color: #000;
+}
+
+footer i {
+    font-size: 30px;
+    width: 30px;
+    font-weight: 400;
+    color: #21242D;
+    margin: 0 10px 20px;
+   
+}
+
+footer p{
+  font-size: 14px;
+}
+
+footer .icons svg{
+    color: #000;
+    width: 50px;
+    height:50px;
+}

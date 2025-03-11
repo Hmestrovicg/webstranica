@@ -1,0 +1,77 @@
+header {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    background: linear-gradient(90deg, #f8b195, #f67280, #c06c84, #6c5b7b, #355c7d);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo img {
+    height: 52px;
+    margin-left: 120px;
+}
+
+header .nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+header .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+header .btn {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+header .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+header .login {
+    /* display:flex; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .dropdown-menu {
+    background: #fff;
+    color: #000;
+}
+
+header .dropdown-item {
+    color: #000;
+}
+
+header .dropdown-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
