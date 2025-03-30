@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
+import ProductCard from "./ProductCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Shop.css';
 
-const SliderProducts = ({ category, length }) => {
+const SliderProducts = ({ category, length, sectionName, onAddToCart }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -53,17 +54,10 @@ const SliderProducts = ({ category, length }) => {
     return (
         <div className="container">
             <div className="slider-products">
+                <h2 className="section-title">{sectionName}</h2>
                 <Slider {...settings}>
                     {products.map(product => (
-                        <div key={product.id} className="product">
-                            <img src={product.thumbnail} alt={product.title} />
-                            <h3 className="product-title">{product.title}</h3>
-                            <p className="product-description">
-                                {product.description.length > 100 ? `${product.description.substring(0, 100)}...` : product.description}
-                            </p>
-                            <p className="product-price">{product.price} EUR</p>
-                            <button className="add-to-cart">Add to Cart</button>
-                        </div>
+                        <ProductCard onAddToCart={onAddToCart} key={product.id} product={product} />
                     ))}
                 </Slider>
             </div>

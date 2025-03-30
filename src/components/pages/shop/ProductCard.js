@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './ProductCard.css';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart }) => {
 
     const addToCart = () => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -22,6 +22,7 @@ const ProductCard = ({ product }) => {
         });
 
         localStorage.setItem('cart', JSON.stringify(cart));
+        onAddToCart();
     }
 
     return (

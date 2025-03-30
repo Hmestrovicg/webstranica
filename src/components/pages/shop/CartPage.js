@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './Shop.css';
 
 const CartPage = () => {
@@ -67,6 +68,7 @@ const CartPage = () => {
                         </tr>
                     </tfoot>
                 </table>
+                <Link to="/checkout" className="btn btn-success">Checkout</Link>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ const Header = () => {
     const toggleMenu = () => {
         setMenu(!menu);
     }
-
+    const handleClose = () => setMenu(false);
     useEffect(() => {
         const user = localStorage.getItem('username');
         if (user) setUsername(user);
@@ -35,15 +35,15 @@ const Header = () => {
                     </button>
                     <div className={'collapse navbar-collapse ' + (menu ? 'show' : '')} id="navbarNavAltMarkup">
                         <div className="mx-auto nav-links navbar-nav d-flex align-items-center">
-                            <Link to="/Shop">Shop</Link>
-                            <Link to="/Contact">Contact</Link>
-                            <Link to="/About">About</Link>
+                            <Link to="/Shop" onClick={handleClose}>Shop</Link>
+                            <Link to="/Cart" onClick={handleClose}>Cart Page</Link>
+                            <Link to="/Blog" onClick={handleClose}>Blog</Link>
                             <div className="dropdown">
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><Link className="dropdown-item" to="/Blog">Blog</Link></li>
-                                    <li><Link className="dropdown-item" to="/Countries">Countries</Link></li>
-                                    <li><Link className="dropdown-item" to="/Exchange">Exchange</Link></li>
-                                    <li><Link className="dropdown-item" to="/Cart">Cart page</Link> </li>
+                                    <li><Link className="dropdown-item" to="/About" onClick={handleClose}>About</Link></li>
+                                    <li><Link className="dropdown-item" to="/Countries" onClick={handleClose}>Countries</Link></li>
+                                    <li><Link className="dropdown-item" to="/Exchange" onClick={handleClose}>Exchange</Link></li>
+                                    <li><Link className="dropdown-item" to="/Contact" onClick={handleClose}>Contact</Link> </li>
                                     {/* Add more routes as needed */}
                                 </ul>
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

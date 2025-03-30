@@ -1,37 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import Slider from "react-slick";
 
-import ShopCategory from "./ShopCategory";
+
 import SliderProducts from "./SliderProducts";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Shop.css';
 const Shop = () => {
+    const [showCart, setShowCart] = useState(false);
+    const [cartItems, setCartItems] = useState([]);
 
-    const [categories, setCategories] = useState([]);
-    useEffect(
-        () => {
-            fetch('https://dummyjson.com/products/categories')
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => setCategories(data))
-        }, []
-    );
+    const toggleCart = () => {
+        setShowCart(true);
+        loadCartItems();
+    };
 
-    const [products, setProducts] = useState([]);
-    useEffect(
-        () => {
-            fetch('https://dummyjson.com/products?sortBy=meta&order=desc&limit=8')
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => setProducts(data.products))
-        }, []
-    );
+    const loadCartItems = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartItems(cart);
+    };
+
+    const removeFromCart = (id) => {
+        const updatedCart = cartItems.filter(item => item.id !== id);
+        setCartItems(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
 
     var heroSlider = {
         dots: false,
@@ -43,6 +38,7 @@ const Shop = () => {
         autoplay: true,
         autoplaySpeed: 3000
     };
+
 
     return (
         <div className="shop">
@@ -96,8 +92,30 @@ const Shop = () => {
                 </div>
             </Slider>
 
-            <SliderProducts category='beauty' length='4' />
-            <SliderProducts category='smartphones' length='6' />
+
+            <SliderProducts onAddToCart={toggleCart} category="smartphones" length="8" sectionName="Najprodavaniji proizvodi" />
+            <SliderProducts onAddToCart={toggleCart} category="beauty" length="8" sectionName="Najbolje ocjenjeni proizvodi" />
+            <div className={"cart-sidebar " + (showCart ? "open" : "")}>
+                <button className="close-btn" onClick={() => setShowCart(false)}>❌</button>
+                <h3>Košarica</h3>
+                {cartItems.length > 0 ? (
+                    <ul className="cart-items">
+                        {cartItems.map(item => (
+                            <li key={item.id} className="cart-item">
+                                <img src={item.thumbnail} alt={item.title} className="cart-item-thumbnail" />
+                                <div className="cart-item-details">
+                                    <h4>{item.title}</h4>
+                                    <p>{item.quantity} x {item.price} EUR</p>
+                                </div>
+                                <button className="remove-btn" onClick={() => removeFromCart(item.id)}>❌</button>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>Košarica je prazna.</p>
+                )}
+                <Link to="/cart"> <button className="btn btn-primary">Pogledaj košaricu</button> </Link>
+            </div>
         </div>
     );
 }

@@ -10,62 +10,7 @@
 .shop .slick-dots{
     bottom: 25px;
 }
-.shop .product {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px;
-    background-color: #f0f8ff;
-    transition: transform 0.3s ease;
-    width: 250px; /* Set a fixed width */
-    height: 450px; /* Set a fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
-.shop .product:hover {
-    transform: scale(1.05);
-}
-
-.shop .product img {
-    max-width: 100%;
-    border-radius: 10px;
-    height: 150px; /* Set a fixed height for the image */
-    object-fit: cover;
-}
-
-.shop .product-title {
-    font-size: 1.5em;
-    margin: 10px 0;
-}
-
-.shop .product-price {
-    font-size: 1.2em;
-    color: #e728c7;
-    margin: 5px 0;
-}
-
-.shop .product-description {
-    font-size: 1em;
-    color: #666;
-    margin: 10px 0;
-    flex-grow: 0; /* Allow the description to grow and take available space */
-}
-
-.shop .add-to-cart {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.shop .add-to-cart:hover {
-    background-color: #218838;
-}
 .shop .slick-next:before{
     font-size: 20px;
     color: #c26d84;
@@ -171,4 +116,52 @@
     .shop .add-to-cart {
         padding: 6px 12px;
     }
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 108px;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cart-item-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
 }
