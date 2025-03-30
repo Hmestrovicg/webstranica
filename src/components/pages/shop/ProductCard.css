@@ -69,3 +69,14 @@
 .price:hover {
     background-color: #218838;
 }
+
+.cart-notification {
+    position: fixed;
+    background-color: #1dcf43;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    z-index: 1000;
+}
