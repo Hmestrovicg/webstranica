@@ -12,6 +12,8 @@ const ProductCard = ({ product, onAddToCart }) => {
         if (productInCart) {
             productInCart.quantity++;
             localStorage.setItem('cart', JSON.stringify(cart));
+            onAddToCart();
+            setAddedToCart(true);
             return;
         }
         cart.push({

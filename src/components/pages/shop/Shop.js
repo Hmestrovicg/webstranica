@@ -15,6 +15,9 @@ const Shop = () => {
     const toggleCart = () => {
         setShowCart(true);
         loadCartItems();
+        setTimeout(() => {
+            setShowCart(false);
+        }, 3000);
     };
 
     const loadCartItems = () => {

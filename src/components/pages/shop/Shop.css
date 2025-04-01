@@ -23,6 +23,7 @@
 }
 .cart-page {
     padding: 20px;
+    min-height: 100vh;
 }
 
 .page-header {
@@ -34,6 +35,8 @@
 .cart-title {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
 }
 
 .table-hover tbody tr:hover {
@@ -42,7 +45,9 @@
 
 .cart-item-thumbnail {
     width: 50px;
-    height: auto;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .table thead th {
@@ -63,6 +68,36 @@
 
 .table tfoot span {
     font-weight: bold;
+}
+
+.clear-cart-btn {
+    background-color: #ffc107; /* Warning color */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+    background-color: #e0a800; /* Darker warning color */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
 }
 @media (max-width: 768px) {
     .shop .product {

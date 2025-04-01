@@ -19,14 +19,20 @@ const CartPage = () => {
                 total += item.price * item.quantity;
             });
         return total;
-    }
+    };
     const removeItem = (id) => {
         const updatedCart = cart.filter((item) => item.id !== id);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         setCart(updatedCart);
-    }
+    };
+
+    const clearCart = () => {
+        localStorage.removeItem('cart');
+        setCart([]);
+    };
     return (
         <div className="cart-page">
+            { /** 
             <div className="page-header">
                 <div className="py-5 text-center container">
                     <img className="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
@@ -36,6 +42,7 @@ const CartPage = () => {
                     </div>
                 </div>
             </div>
+            */}
             <h1 className="cart-title">Cart Page</h1>
             <div className="container py-5">
                 <table className="table table-hover">
@@ -56,15 +63,18 @@ const CartPage = () => {
                                 <td>{cartItem.quantity}</td>
                                 <td>{cartItem.price} EUR</td>
                                 <td>{(cartItem.price * cartItem.quantity).toFixed(2)} EUR</td>
-                                <td><button onClick={() => removeItem(cartItem.id)}>X</button></td>
+                                <td><button className="btn btn-danger btn-sm" onClick={() => removeItem(cartItem.id)}>X</button></td>
                             </tr>
                         ))}
                     </tbody>
                     <tfoot>
                         <tr>
                             <td><h4>Total price</h4></td>
-                            <td colSpan="4"></td>
+                            <td colSpan="3"></td>
                             <td><span>{(totalPrice()).toFixed(2)} EUR</span></td>
+                            <td>
+                                <button className="btn btn-warning btn-sm clear-cart-btn" onClick={clearCart}>Clear Cart</button>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
